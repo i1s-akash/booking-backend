@@ -42,3 +42,6 @@ Node.js, Express.js & MongoDB
 -> Shifted code to Github
 -> Hosted on Render
 -> Live Web Service URL: https://booking-backend-ot7m.onrender.com
+-> Configured cors 
+-> Updated .env at VERCEL
+-> Auto deployed and it's done!
