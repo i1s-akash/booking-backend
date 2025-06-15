@@ -17,14 +17,21 @@ const getSlotsForNext7Days = async () => {
         day.setDate(today.getDate() + i);
         const dateStr = day.toISOString().split('T')[0];
 
-        const dailySlots = bookedSlots
+        const slotMap = new Map();
+        bookedSlots
             .filter(slot => new Date(slot.date).toISOString().split('T')[0] === dateStr)
-            .map(slot => ({
-                _id: slot._id,
-                startTime: slot.startTime,
-                endTime: slot.endTime,
-                isBooked: slot.isBooked
-            }));
+            .forEach(slot => {
+                const key = `${slot.startTime}-${slot.endTime}`;
+                if (!slotMap.has(key)) {
+                    slotMap.set(key, {
+                        _id: slot._id,
+                        startTime: slot.startTime,
+                        endTime: slot.endTime,
+                        isBooked: slot.isBooked
+                    });
+                }
+            });
+        const dailySlots = Array.from(slotMap.values());
 
         result.push({ date: dateStr, slots: dailySlots });
     }
