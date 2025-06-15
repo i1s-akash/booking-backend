@@ -39,4 +39,6 @@ Node.js, Express.js & MongoDB
 
 
 # Hosting `booking-backend` at Render
--> 
+-> Shifted code to Github
+-> Hosted on Render
+-> Live Web Service URL: https://booking-backend-ot7m.onrender.com
